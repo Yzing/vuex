@@ -20,9 +20,9 @@ export default {
     products: 'allProducts'
   }),
   methods: mapActions([
-    'addToCart'
+    'addToCart' // 顶层action的函数
   ]),
-  created () {
+  created () { // 组件创建时执行，触发 products 里的获取商品列表的方法
     this.$store.dispatch('getAllProducts')
   }
 }

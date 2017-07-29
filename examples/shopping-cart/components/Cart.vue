@@ -19,13 +19,13 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      products: 'cartProducts',
-      checkoutStatus: 'checkoutStatus'
+      products: 'cartProducts', // products被混合为计算属性，cartProducs为引用的函数，即store里的getters下的函数
+      checkoutStatus: 'checkoutStatus' // 引用cart.getters.checkoutStatus
     }),
     total () {
       return this.products.reduce((total, p) => {
         return total + p.price * p.quantity
-      }, 0)
+      }, 0) // 详见ES6 reduce 函数,动态计算总价
     }
   },
   methods: {
